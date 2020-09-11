@@ -1,4 +1,67 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+
+<div class="container h-100">
+  
+
+  <div class="d-flex justify-content-center h-100">
+    <div class="user_card">
+
+      
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+          <img class="brand_logo" src="../assets/img/faces/{{usuarioFoto}}">          
+        </div>
+      </div>
+
+
+
+      <div class="d-flex justify-content-center form_container">
+        <form>
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" #txtUsuario (focus)="$event.target.select()" (blur)="onBluerValidaUsuario(txtUsuario.value, txtPassword.value)" class="form-control input_user" value="{{usuario}}" placeholder="Usuario">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" #txtPassword (focus)="$event.target.select()" (blur)="onBluerValidaUsuario(txtUsuario.value, txtPassword.value)"  class="form-control input_pass" value="{{password}}" placeholder="Contraseña">
+          </div>
+          <div class="form-group">
+          </div>
+            <div class="d-flex justify-content-center mt-3 login_container">
+         <button [disabled]="!esValido" (click)="OnClickvalidarUsuario(txtUsuario.value, txtPassword.value)" type="button" name="button" class="btn login_btn flex">Validar usuario</button>
+         </div>
+        </form>
+      </div>
+  
+      <div class="mt-4">
+
+        <div class="d-flex justify-content-center links">
+          <button class="btn btn-primary">¿Olvidaste tu contraseña?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="card-deck m-3">
+  <div class="card shadow" *ngFor="let cara of objeto">
+    <h5 class="card-title text-center">{{cara.nombre}}</h5>
+    <img src="../assets/img/faces/{{cara.foto}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text text-justify">{{cara.descripcion}}</p>
+      <p class="card-text text-right"><small class="text-muted">{{cara.fecha}}</small></p>
+    </div>
+    <button (click)="OnClickvalidarUsuario(usuario, password)" type="button" name="button" class="btn login_btn flex mb-2">Validar usuario</button>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <th scoppe="col">Nombre</th>
+  </thead>
+  <tr  *ngFor="let hero of objeto">
+    <td> {{hero.nombre}} </td>
+  </tr>
+</table>
+</div>
