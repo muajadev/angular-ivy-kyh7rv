@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RolService } from './componentes/servicios/rol.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    formData: RolService;
     title = 'modelo';
     usuario: string;
     password: string;

@@ -15,12 +15,12 @@
 
 
       <div class="d-flex justify-content-center form_container">
-        <form>
+        <form #form="ngModel">
           <div class="input-group mb-3">
             <div class="input-group-append">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" #txtUsuario (focus)="$event.target.select()" (blur)="onBluerValidaUsuario(txtUsuario.value, txtPassword.value)" class="form-control input_user" value="{{usuario}}" placeholder="Usuario">
+            <input type="text" #Nombrerol="ngModel" [(ngModel)]="service.Nombrerol" (focus)="$event.target.select()" (blur)="onBluerValidaUsuario(txtUsuario.value, txtPassword.value)" class="form-control input_user" value="{{usuario}}" placeholder="Usuario">
           </div>
           <div class="input-group mb-2">
             <div class="input-group-append">
